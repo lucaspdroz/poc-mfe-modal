@@ -8,13 +8,14 @@ import Button from '@mui/material/Button';
 import { Box, Fade, Modal, Typography } from "@mui/material";
 import Backdrop from '@mui/material/Backdrop';
 import CustomModal from "./components/customModal";
+import Header from "./components/header";
 
 const App = () => {
   const { t } = useTranslation();
 
   return (
     <div className="container">
-      <div>{t('isMFE')}</div>
+      <Header title={t('isMFE')}/>
       <CustomModal />
     </div>
   );

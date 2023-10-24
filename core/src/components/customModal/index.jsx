@@ -1,19 +1,18 @@
-import React from 'react'
-
+import React, { useState } from 'react'
 import { useTranslation } from 'react-i18next';
 import '../../i18n';
-import "../../index.css";
 
-import Button from '@mui/material/Button';
 import { Box, Fade, Modal, Typography } from "@mui/material";
 import Backdrop from '@mui/material/Backdrop';
+import Button from '@mui/material/Button';
 
 export default function CustomModal() {
     const { t } = useTranslation();
+    const [open, setOpen] = useState(false);
 
-    const [open, setOpen] = React.useState(false);
-    const handleOpen = () => setOpen(true);
-    const handleClose = () => setOpen(false);
+    const toggleModal = () => {
+        setOpen(!open);
+    };
 
     const style = {
         position: 'absolute',
@@ -34,12 +33,14 @@ export default function CustomModal() {
             <div>{t('framework')}</div>
             <div>{t('language')}</div>
             <div>{t('css')}</div>
-            <Button onClick={handleOpen}>Open modal</Button>
+            <Button onClick={toggleModal} variant="contained">
+                {t('openModal')}
+            </Button>
             <Modal
                 aria-labelledby="transition-modal-title"
                 aria-describedby="transition-modal-description"
                 open={open}
-                onClose={handleClose}
+                onClose={toggleModal}
                 closeAfterTransition
                 slots={{ backdrop: Backdrop }}
                 slotProps={{
@@ -51,10 +52,10 @@ export default function CustomModal() {
                 <Fade in={open}>
                     <Box sx={style}>
                         <Typography id="transition-modal-title" variant="h6" component="h2">
-                            Text in a modal
+                            {t('modalTitle')}
                         </Typography>
                         <Typography id="transition-modal-description" sx={{ mt: 2 }}>
-                            Duis mollis, est non commodo luctus, nisi erat porttitor ligula.
+                            {t('modalDescription')}
                         </Typography>
                     </Box>
                 </Fade>

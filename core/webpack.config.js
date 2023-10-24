@@ -45,7 +45,8 @@ module.exports = (_, argv) => ({
       filename: "remoteEntry.js",
       remotes: {},
       exposes: {
-        './CustomModal': './src/components/customModal/index.jsx'
+        './CustomModal': './src/components/customModal/index.jsx',
+        './Header': './src/components/header/index.jsx'
       },
       shared: {
         ...deps,
