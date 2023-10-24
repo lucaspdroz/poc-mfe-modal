@@ -3,5 +3,8 @@ export const translation = {
     title: "Teste i18n",
     framework: "react",
     language: "JavaScript",
-    css: "Material UI"
+    css: "Material UI",
+    openModal: "Abrir Modal",
+    modalTitle: "Título",
+    modalDescription: "Lorem ipsum dolor sit amet",
 }
